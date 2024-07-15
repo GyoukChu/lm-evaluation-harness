@@ -1,0 +1,13 @@
+task: pubmedqa_in_korean
+dataset_path: ChuGyouk/PubMedQA_Korean
+output_type: multiple_choice
+test_split: test
+doc_to_text: !function preprocess_pubmedqa_gyouk.doc_to_text
+doc_to_target: final_decision
+doc_to_choice: ["예", "아니오", "아마도"]
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 1.0

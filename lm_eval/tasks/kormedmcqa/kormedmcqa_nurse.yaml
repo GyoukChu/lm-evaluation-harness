@@ -19,8 +19,7 @@ metric_list:
 generation_kwargs:
   until:
     - "Q:"
-    - "\n\n"
     - "</s>"
-    - "."
+    - "<|end_of_text|>"
   do_sample: false
   temperature: 0.0

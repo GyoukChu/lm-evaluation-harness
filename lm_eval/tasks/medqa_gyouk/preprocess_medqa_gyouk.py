@@ -1,13 +1,20 @@
 def doc_to_text(doc) -> str:
     option_choices = {
-        "A": doc["ending0"],
-        "B": doc["ending1"],
-        "C": doc["ending2"],
-        "D": doc["ending3"],
+        "A": doc["options"]["A"],
+        "B": doc["options"]["B"],
+        "C": doc["options"]["C"],
+        "D": doc["options"]["D"],
     }
     answers = "".join((f"{k}. {v}\n") for k, v in option_choices.items())
-    return f"Question: {doc['sent1']}\n{answers}Answer:"
+    return f"Question: {doc['question']}\n{answers}Answer:"
 
 
 def doc_to_target(doc) -> int:
-    return doc["label"]
+    if doc['answer_idx']=="A":
+        return 0
+    elif doc['answer_idx']=="B":
+        return 1
+    elif doc['answer_idx']=="C":
+        return 2
+    else:
+        return 3

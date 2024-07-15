@@ -6,7 +6,7 @@ def doc_to_text(doc) -> str:
         "D": doc["options"]["D"],
     }
     answers = "".join((f"{k}. {v}\n") for k, v in option_choices.items())
-    return f"Question: {doc['question']}\n{answers}Answer:"
+    return f"문제: {doc['question']}\n{answers}정답:"
 
 
 def doc_to_target(doc) -> int:
